@@ -9,7 +9,7 @@
     <h2>管理者ログイン</h2>
     
     @if ($errors->any())
-        <div>
+        <div class="error-message">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

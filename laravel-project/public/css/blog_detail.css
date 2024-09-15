@@ -1,0 +1,32 @@
+.blog-container {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.blog-img img {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.blog-content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.blog-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.blog-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.blog-date {
+  font-size: 0.9rem;
+  color: #777;
+}

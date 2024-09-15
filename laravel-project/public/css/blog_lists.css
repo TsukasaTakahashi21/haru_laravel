@@ -1,0 +1,97 @@
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid #007BFF;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-input, .filter-select, .filter-button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+.filter-button {
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #0056b3;
+}
+
+/* Blog List */
+.blog-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.blog-item {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.blog-image img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.blog-content-container {
+  flex: 1;
+}
+
+.blog-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.blog-content {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.blog-date {
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.detail-link {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.detail:hover {
+  text-decoration: underline;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination a, .pagination span {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  color: #333;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #007BFF;
+  color: white;
+}
