@@ -16,12 +16,15 @@
     @if ($blog->image)
     <div class="blog-image">
       <img src="{{ asset('storage/images/' . $blog->image) }}" alt="{{ $blog->title }}">
+      <div class="blog-category">
+        <span class="category">{{ $blog->categories->first()->name }}</span>
+      </div>
     </div>
     @endif
     <div class="blog-content-container">
       <h3 class="blog-title">{{ $blog->title }}</h3>
       <p class="blog-content">{{ Str::limit($blog->content, 30, '...') }}</p>
-      <p class="blog-date">{{ $blog->created_at->format('Y年m月d日 H:i') }}</p>
+      <p class="blog-date">{{ $blog->created_at->format('Y年m月d日') }}</p>
       <a href="{{ route('admin_blog.detail', ['id' => $blog->id]) }}" class="detail-link">記事詳細へ ></a>
     </div>
   </div>
