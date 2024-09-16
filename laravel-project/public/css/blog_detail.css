@@ -145,3 +145,47 @@
   font-size: 1rem;
   line-height: 1.6;
 }
+
+.blog-edit-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.blog-edit-image {
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #808080; 
+  color: white;
+  padding: 8px 15px; 
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s; 
+  display: inline-flex; /
+  align-items: center; 
+  justify-content: center;
+}
+
+.edit-button:hover {
+  background-color: #4CAF50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+a.edit-button,
+a.delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+}
+
+.delete-button:hover {
+  background-color: #f44336; 
+}
