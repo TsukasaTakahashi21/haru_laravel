@@ -25,7 +25,7 @@
     <div class="form-group">
       <select name="order" id="order">
         <option value="newest" {{ request('order') == 'newest' ? 'selected' : '' }}>新しい順</option>
-        <option value="oldest" {{ request('order') == 'newest' ? 'selected' : '' }}>古い順</option>
+        <option value="oldest" {{ request('order') == 'oldest' ? 'selected' : '' }}>古い順</option>
       </select>
     </div>
 
