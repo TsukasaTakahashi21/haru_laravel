@@ -39,7 +39,7 @@ class AdminBlogController extends Controller
 
         $blog->save();
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin_blog.index');
     }
 
     // 管理者用ブログ一覧ページ
@@ -52,7 +52,7 @@ class AdminBlogController extends Controller
     // 管理者用ブログ詳細ページ
     public function show($id)
     {
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::with('comments')->findOrFail($id);
         return view('admin.blog_detail', ['blog' => $blog]);
     }
 }
