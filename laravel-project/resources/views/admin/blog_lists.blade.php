@@ -6,8 +6,32 @@
 @endsection
 
 @section('content')
+<h2 class="section-title">ブログ一覧 ~Haru.便り~</h2>
 <section class="blogs-filter">
-  <h2 class="section-title">ブログ一覧 ~Haru.便り~</h2>
+  <form action="{{ route('admin_blog.index') }}" method="get" class="filter-form">
+    <div class="form-group">
+      <input type="text" name="keyword" id="keyword" value="{{ request('keyword') }}" placeholder="キーワード...">
+    </div>
+
+    <div class="form-group">
+      <select name="category" id="category">
+        <option value="">カテゴリ-</option>
+          @foreach ($categories as $category)
+          <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+          @endforeach
+      </select>
+    </div>
+
+    <div class="form-group">
+      <select name="order" id="order">
+        <option value="newest" {{ request('order') == 'newest' ? 'selected' : '' }}>新しい順</option>
+        <option value="oldest" {{ request('order') == 'oldest' ? 'selected' : '' }}>古い順</option>
+      </select>
+    </div>
+
+    <button type="submit" class="filter-button">検索</button>
+    <a href="{{ route('admin_blog.index') }}" class="filter-button">全て</a>
+  </form>
 </section>
 
 <section class="blog-lists">
@@ -31,11 +55,4 @@
   @endforeach
 </section>
 
-<div class="pagination">
-  <a href="">前へ</a>
-  <span>1</span>
-  <a href="">2</a>
-  <a href="">3</a>
-  <a href="">次へ</a>
-</div>
 @endsection
