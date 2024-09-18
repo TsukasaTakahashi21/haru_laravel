@@ -44,7 +44,7 @@
 
     <div class="form-group">
       <label for="content">内容:</label>
-      <input type="content" name="content" id="content" class="form-input" value="" required>
+      <textarea name="content" id="content" class="form-input" required>{{ old('content') }}</textarea>
     </div>
     <button type="submit" class="submit-button">作成</button>
   </form>

@@ -17,6 +17,15 @@
     <h3 class="blog-title">{{ $blog->title }}</h3>
     <p class="blog-content">{{ $blog->content }}</p>
     <p class="blog-date">{{ $blog->created_at->format('Y年m月d日') }}</p>
+    <div class="blog-actions">
+      <a href="{{ route('admin_blog.edit', $blog) }}" class="edit-button">編集</a>
+
+      <form action="{{ route('admin_blog.destroy', $blog) }}" method="post" class="delete-form">
+        @csrf 
+        @method('DELETE')
+        <button type="submit" class="delete-button">削除</button>
+      </form>
+    </div>
   </div>
 </section>
 

@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminBlogController extends Controller
 {
@@ -58,5 +59,44 @@ class AdminBlogController extends Controller
     {
         $blog = Blog::with('comments')->findOrFail($id);
         return view('admin.blog_detail', ['blog' => $blog]);
+    }
+
+    // ブログ編集
+    public function edit(Blog $blog)
+    {
+        $categories = Category::all();
+        return view ('admin.blog_edit', compact('blog', 'categories'));
+    }
+
+    public function update(Request $request, Blog $blog)
+    {
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'content' => 'required|string',
+            'image' => 'nullable|image',
+            'categories' => 'required|array'
+        ]);
+
+        $blog->update($request->only('title', 'content'));
+
+        if ($request->hasFile('image')) {
+            if ($blog->image) {
+                Storage::delete('public/images' . $blog->image);
+            }
+
+            $imagePath = $request->file('image')->store('public/images');
+            $blog->image = basename($imagePath);
+            $blog->save();
+        }
+
+        $blog->categories()->sync($request->categories);
+
+        return redirect()->route('admin_blog.detail', ['id' => $blog->id]);
+    }
+
+    public function destroy(Blog $blog)
+    {
+        $blog->delete();
+        return redirect()->route('admin_blog.index');
     }
 }

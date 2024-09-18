@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminBlogController;
+use App\Http\Controllers\CommentController;
 
 // HOMEページ
 Route::get('/', function () { return view('home');})->name('home');
@@ -38,3 +39,15 @@ Route::get('/admin/blogs', [AdminBlogController::class, 'index'])->name('admin_b
 // 管理者ブログ詳細ページ
 Route::get('/admin/blog/{id}', [AdminBlogController::class, 'show'])->name('admin_blog.detail');
 
+// ブログのコメント保存
+Route::post('/blog/{blog}/comments', [CommentController::class, 'store'])->name('comments.store');
+
+// ブログのコメント削除
+Route::delete('/comments{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+// ブログの編集機能
+Route::get('/blog/{blog}/edit', [AdminBlogController::class, 'edit'])->name('admin_blog.edit');
+Route::put('_blog/{blog}', [AdminBlogController::class, 'update'])->name('admin_blog.update');
+
+// ブログの削除機能
+Route::delete('/blog/{blog}', [AdminBlogController::class, 'destroy'])->name('admin_blog.destroy');

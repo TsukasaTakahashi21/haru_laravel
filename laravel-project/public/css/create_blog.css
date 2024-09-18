@@ -76,3 +76,42 @@ textarea.form-input {
   background-color: #0056b3;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* 編集用css */
+.edit-blog {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-edit-image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.blog-edit-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+input[type="file"] {
+  padding: 12px;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #cccccc;
+  color: 333;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #999999;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
