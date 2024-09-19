@@ -1,0 +1,65 @@
+.rooms {
+  padding: 100px 20px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.room-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.room-gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.room-gallery img:nth-child(1) {
+  grid-column: span 2; 
+  grid-row: span 2; 
+}
+
+.room-gallery img:nth-child(2),
+.room-gallery img:nth-child(3) {
+  grid-column: span 1; 
+}
+
+.room-gallery img:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 2; 
+  height: 100%;
+}
+
+.room-gallery img:nth-child(5),
+.room-gallery img:nth-child(6) {
+  grid-column: span 1;
+  grid-row: span 1; 
+}
+
+.room-gallery img:nth-child(7),
+.room-gallery img:nth-child(8) {
+  grid-column: span 1; 
+}
+
+.room-gallery img:nth-child(9) {
+  grid-column: span 2; 
+  grid-row: span 2;
+}
+
+.room-gallery img:nth-child(11),
+.room-gallery img:nth-child(12) {
+  grid-column: span 1;
+}

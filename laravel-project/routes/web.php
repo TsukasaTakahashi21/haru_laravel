@@ -4,12 +4,22 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\HomeController;
 
 // HOMEページ
-Route::get('/', function () { return view('home');})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Haruページ
 Route::get('/haru', function () { return view('haru');})->name('haru');
+
+// お部屋紹介ページ
+Route::get('/room', function () {return view('room-photos');})->name('room');
+
+// ブログ一覧ページ
+Route::get('/blogs', [HomeController::class, 'blog_lists'])->name('public_blog_lists');
+
+// ブログ詳細ページ
+Route::get('/blogs/{id}', [HomeController::class, 'blog_detail'])->name('public_blog_detail');
 
 // 予約ページ
 Route::get('/reservation', function() {return view('reservation');})->name('reservation');
