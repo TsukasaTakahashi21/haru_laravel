@@ -9,9 +9,33 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $requests = ContactRequest::all();
+        $query = ContactRequest::query();
+
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->name . '%');
+        }
+
+
+        if ($request->filled('email')) {
+            $query->where('email', 'like', '%' . $request->email . '%');
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('date_from') && $request->filled('date_to')) {
+            $query->whereBetween('created_at', [$request->date_from, $request->date_to]);
+        }
+
+        if ($request->filled('message')) {
+            $query->where('message', 'like', '%' . $request->message . '%');
+        }
+
+        $requests = $query->get();
+        
         return view('admin.contact_requests', compact('requests'));
     }
 
@@ -43,10 +67,9 @@ class ContactController extends Controller
         ]);
 
         $contactRequest = ContactRequest::create($request->all());
-        
+
         Mail::to('tukaburu13@gmail.com')->send(new ContactMail($contactRequest));
 
         return redirect()->to(route('haru') . '#contact')->with('success', 'お問い合わせありがとうございました。');
-
     }
 }
