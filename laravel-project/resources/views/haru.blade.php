@@ -146,6 +146,13 @@
 <section class="contact">
   <div class="inner">
     <h3 class="section-title">お問い合わせ</h3>
+
+    @if (session('success'))
+    <div class="alert alert-success">
+      {{ session('success') }}
+    </div>
+    @endif
+
     <div class="contact-container">
       <div class="contact-info">
         <div class="contact-address">
@@ -166,18 +173,30 @@
         </div>
       </div>
 
-      <form action="" class="contact-form">
+      <form action="{{ route('contact.send') }}" method="POST" class="contact-form">
+        @csrf
         <div class="form-group">
-          <label for="first-name">Name</label>
-          <input type="text" name="first-name" id="first-name" class="input-form">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" class="input-form" value="{{ old('name') }}">
+          @error('name')
+          <span class="error">{{ $message }}</span>
+          @enderror
         </div>
+
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="input-form">
+          <input type="email" id="email" name="email" class="input-form" value="{{ old('email') }}">
+          @error('email')
+          <span class="error">{{ $message }}</span>
+          @enderror
         </div>
+
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" class="textarea-form"></textarea>
+          <textarea id="message" name="message" class="textarea-form" value="{{ old('message') }}"></textarea>
+          @error('message')
+          <span class="error">{{ $message }}</span>
+          @enderror
         </div>
         <button type="submit" class="submit-button">Send</button>
       </form>
