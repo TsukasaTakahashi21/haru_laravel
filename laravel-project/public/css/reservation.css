@@ -1,0 +1,103 @@
+/* 予約フォーム全体のスタイル */
+.top-image {
+  width: 100%;
+  height: auto;
+}
+
+.reservation {
+  padding: 100px 20px;
+}
+.reservationForm {
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1400px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.reservation-calendar {
+  padding: 100px 20px;
+}
+
+.booking-detail {
+  padding: 40px 0;
+  background-color: #f8f8f8;
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.detail-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.detail-head {
+  width: 30%;
+  font-weight: bold;
+  color: #333;
+}
+
+.detail-text {
+  width: 65%;
+  color: #666;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .detail-group {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .detail-head,
+  .detail-text {
+      width: 100%;
+  }
+}
+
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .booking {
+      flex-direction: column;
+  }
+
+  .about-haru-image-wrapper, 
+  .booking-form {
+      width: 100%;
+  }
+}
