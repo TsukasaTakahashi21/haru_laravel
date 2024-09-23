@@ -1,103 +1,121 @@
-/* 予約フォーム全体のスタイル */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+.top-section {
+  margin-top: 60px;
+  width: 100%;
+  height: 100vh;
+  background-color: #e0f7fa;
+}
+
+
 .top-image {
   width: 100%;
-  height: auto;
-}
-
-.reservation {
-  padding: 100px 20px;
-}
-.reservationForm {
-  padding: 40px 0;
-  background-color: #f9f9f9;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .inner {
   width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
-  max-width: 1400px;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-p {
-  color: #333;
-  font-size: 1.2rem;
-}
-
-.reservation-calendar {
-  padding: 100px 20px;
-}
-
-.booking-detail {
-  padding: 40px 0;
-  background-color: #f8f8f8;
-}
-
-.inner {
-  width: 80%;
-  margin: 0 auto;
-  max-width: 1400px;
+  padding: 20px;
 }
 
 .section-title {
   font-size: 2rem;
   margin-bottom: 30px;
+  color: #333;
   text-align: center;
-  color: #333;
 }
 
+/* 予約セクション */
+.reservation-calendar {
+  background-color: #fff;
+  padding: 100px 20px;
+}
+
+#calendar {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 料金や予約詳細のセクション */
+.booking-detail {
+  background-color: #f0f0f0;
+  padding: 100px 20px;
+}
+
+/* 詳細グループのデザイン */
 .detail-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 各項目のタイトル */
 .detail-head {
-  width: 30%;
   font-weight: bold;
-  color: #333;
+  color: #17252a;
+  font-size: 1.2rem;
 }
 
+/* 各項目のテキスト */
 .detail-text {
-  width: 65%;
-  color: #666;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #505050;
 }
 
-p {
-  margin: 5px 0;
+/* カレンダーのデザイン */
+.fc {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* モバイル対応 */
-@media (max-width: 768px) {
-  .detail-group {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .detail-head,
-  .detail-text {
-      width: 100%;
-  }
+.fc-toolbar-title {
+  font-size: 1.5rem;
+  color: #2b7a78;
 }
 
+.fc-daygrid-day {
+  border: 1px solid #eaeaea;
+}
 
-/* モバイル対応 */
-@media (max-width: 768px) {
-  .booking {
-      flex-direction: column;
-  }
+.fc-day-today {
+  background-color: #e0f7fa !important;
+}
 
-  .about-haru-image-wrapper, 
-  .booking-form {
-      width: 100%;
-  }
+.fc-event {
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.fc-event-red {
+  background-color: #e57373;
+}
+
+.fc-event-green {
+  background-color: #81c784;
+}
+
+.fc-event-green:hover {
+  background-color: #66bb6a;
+}
+
+.fc-day:hover {
+  background-color: #f1f1f1;
 }
