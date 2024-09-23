@@ -10,20 +10,13 @@
 
 @section('content')
 <section class="top-section">
-  <img src="{{ asset('images/teshima1.webp') }}" alt="豊島の風景" class="top-image">
+  <img src="{{ asset('images/teshima5.jpg') }}" alt="豊島の風景" class="top-image">
 </section>
 
-<section class="reservation">
-  <div class="inner">
-    <h2 class="section-title">宿泊のご予約</h2>
-    <p>豊島の自然に囲まれたHaruで、</p>
-    <p>広い一棟貸しの宿で、特別な時間と空間をお楽しみください。</p>
-  </div>
-</section>
 
 <section class="reservation-calendar">
   <div class="inner">
-    <h2 class="section-title">空き状況の確認</h2>
+    <h2 class="section-title">宿泊のご予約</h2>
     <div id="calendar"></div>
   </div>
 </section>
@@ -89,14 +82,22 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-
-    var events = @json($events);
-    
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
-      events: events
+      events: '/get-calendar-date',
+      eventClick: function(info) {
+        if (info.event.extendedProps.clickable) {
+          window.location.href = '/reservation-page?date=' + info.event.startStr;
+        }
+      },
+      eventContent: function(info) {
+        return {
+          html: '<span>' + info.event.title + '</span>'
+        };
+      }
     });
+
     calendar.render();
   });
 </script>
