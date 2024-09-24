@@ -1,0 +1,299 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.top-image {
+  width: 100%;
+  height: auto;
+}
+
+/* 各セクションの余白を調整 */
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.about-haru {
+  text-align: center;
+  padding: 100px 20px;
+  font-size: 18px;
+}
+
+.about-haru p {
+  line-height: 3;
+}
+
+/* 部屋の紹介 */
+.rooms {
+  padding: 0 20px 100px 20px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.room-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px;
+}
+
+.room-photos img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.room-photos img:nth-child(1) {
+  grid-column: span 2; 
+  grid-row: span 2;
+}
+
+.detail-link {
+  display: inline-block;
+  text-decoration: none; 
+  color: #0056b3;
+  margin-top: 20px;
+  align-self: flex-end;
+}
+
+
+/* サービス内容セクションのスタイル */
+.services {
+  padding: 100px 20px;
+  background-color: #f9f9f9; 
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
+.service-item {
+  position: relative;
+  border: 1px solid #ddd;
+  background-color: #fff; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding: 20px;
+  width: calc(33.333% - 20px); 
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.service-modal {
+  display: none;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.service-item.active .service-modal {
+  display: block;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px; 
+  background-color: #007bff; 
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 25px;
+}
+
+.service-title {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.service-content {
+  font-size: 16px;
+  color: #666;
+}
+
+/* サービスアイテムのスタイル */
+.service-item {
+  margin-bottom: 20px;
+}
+
+.service-item .icon {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+
+/* モーダルのスタイル */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+
+/* お問い合わせフォーム */
+.contact {
+  padding: 100px 20px;
+}
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.contact-info, .contact-form {
+  flex: 1;
+  max-width: 500px; 
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  padding: 20px; 
+  background-color: #f9f9f9; */
+  border-radius: 8px; 
+}
+
+.contact-info p {
+  margin: 0; 
+  font-size: 16px; 
+  color: #333; 
+}
+
+.contact-address, .contact-email {
+  padding: 10px 0; 
+  border-bottom: 1px solid #ddd; 
+}
+
+.contact-sns {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.contact-sns p {
+  margin: 0; 
+  font-size: 16px;
+  color: #333; 
+}
+
+.sns-icon {
+  font-size: 24px; 
+  color: #333; 
+  text-decoration: none; 
+}
+
+.sns-icon:hover {
+  color: #007bff; 
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  margin-bottom: 15px; 
+}
+
+.input-form, .textarea-form {
+  width: 100%; 
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.textarea-form {
+  height: 80px; 
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px; 
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #003d80;
+}
+
+.detail-link {
+  color: #0288d1;
+  float: right;
+}
+
+.detail-link:hover {
+  text-decoration: underline;
+}
