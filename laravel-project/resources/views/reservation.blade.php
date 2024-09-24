@@ -74,6 +74,32 @@
   </div>
 </section>
 
+<div id="overlay" class="overlay"></div>
+<div id="infoModal" class="modal">
+  <div class="modal-content">
+    <button id="closeModal" class="close-button">X</button>
+    <h2 class="modal-title">宿のルールと注意事項</h2>
+    <p class="modal-text">・夜間（pm２１：００～）は島の音に耳を傾け、なるべくお静かにお過ごしください。</p>
+    <p class="modal-text">・全館禁煙です。指定場所での喫煙にご協力下さい（加熱式たばこも同様）</p>
+    <p class="modal-text">・宿では蚊や虫などの対策を行っていますが、ご自身でも予防、対策を行ってきていただく事でより快適に過ごせるかと思います。</p>
+    <p class="modal-text">・瀬戸内国際芸術祭の期間中は交通量も多く、島には高齢のドライバーも沢山います。交通マナーには十分に気を付けて観光して下さい。</p>
+    <p class="modal-text">・島にはコンビニエンスストアはありません。また、ゆうちょ銀行、JAバンク以外のATMはございません。島内ではほとんどが現金決済になります。必要なものや現金は事前にご準備のうえ、ご来島ください。</p>
+    <p class="modal-text">・ご宿泊のお客様以外の方の、施設内への立ち入りはお断りしています。</p>
+    <p class="modal-text">・お客様の過失による施設の損傷・破損は実費請求させていただきます。また、鍵を紛失された場合も補償金をご負担いただきます。</p>
+    <p class="modal-text">・急病の場合は島内には救急病院はございませんので、宇野もしくは高松の病院へ海上タクシーで実費にてお客様自身でご移動いただくこととなります。</p>
+
+    <label>
+      <input type="checkbox" id="confirm-check" required>確認しました
+    </label>
+
+
+    <div class="modal-buttons">
+      <button id="airbnbButton" disabled>Airbnbからの予約はこちら</button>
+      <button id="vacationStayButton" disabled>VacationSTAYからの予約はこちら</button>
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @section('scripts')
@@ -88,7 +114,7 @@
       events: '/get-calendar-date',
       eventClick: function(info) {
         if (info.event.extendedProps.clickable) {
-          window.location.href = '/reservation-page?date=' + info.event.startStr;
+          showModal();
         }
       },
       eventContent: function(info) {
@@ -99,6 +125,48 @@
     });
 
     calendar.render();
+
+    function showModal() {
+      const closeButton = document.getElementById('closeModal');
+      const modal = document.getElementById('infoModal');
+      const confirmCheck = document.getElementById('confirm-check');
+      const airbnbButton = document.getElementById('airbnbButton');
+      const vacationStayButton = document.getElementById('vacationStayButton');
+
+      overlay.style.display = 'flex'; 
+      modal.style.display = 'flex';
+
+      closeButton.addEventListener('click',closeModal); 
+      overlay.addEventListener('click', closeModal);
+
+
+      confirmCheck.addEventListener('change', function() {
+        if (confirmCheck.checked) {
+          airbnbButton.disabled = false;
+          vacationStayButton.disabled = false;
+        } else {
+          airbnbButton.disabled = true;
+          vacationStayButton.disabled = true;
+        }
+      });
+
+      airbnbButton.addEventListener('click', function() {
+        window.location.href = 'https://www.airbnb.com/h/shimayado-haru';
+      });
+
+      vacationStayButton.addEventListener('click', function() {
+        window.location.href = 'https://vacation-stay.jp/listings/266521';
+      });
+
+      function closeModal() {
+        confirmCheck.checked = false;
+        airbnbButton.disabled = true;
+        vacationStayButton.disabled = true;
+
+        modal.style.display = 'none';
+        overlay.style.display = 'none'; 
+      }
+    }
   });
 </script>
 @endsection
