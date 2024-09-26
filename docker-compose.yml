@@ -5,8 +5,8 @@ services:
       context: ./docker/php
       dockerfile: ./Dockerfile
       args:
-        - HOST_UID=${HOST_UID}
-        - HOST_GID=${HOST_GID}
+        - HOST_UID=${HOST_UID-1000}
+        - HOST_GID=${HOST_GID-1000}
     volumes:
       - .:/var/www
   nginx:
@@ -51,6 +51,13 @@ services:
       - 4040:80
     volumes:
       - ./phpmyadmin/sessions:/sessions
+
+  mailhog:
+    image: mailhog/mailhog
+    platform: linux/amd64
+    ports:
+      - 1025:1025 # SMTP ポート
+      - 8025:8025 # Web UI ポート
 
 volumes:
   laravel_mysql:

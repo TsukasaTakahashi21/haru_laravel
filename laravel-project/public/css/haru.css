@@ -297,3 +297,16 @@ a {
 .detail-link:hover {
   text-decoration: underline;
 }
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.alert-success {
+  color: green;
+  background-color: #d4edda;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}

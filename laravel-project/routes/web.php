@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 
 // HOMEページ
@@ -11,6 +12,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Haruページ
 Route::get('/haru', function () { return view('haru');})->name('haru');
+
+// お問い合わせフォーム
+Route::post('/haru', [ContactController::class, 'send'])->name('contact.send');
 
 // お部屋紹介ページ
 Route::get('/room', function () {return view('room-photos');})->name('room');
@@ -61,3 +65,10 @@ Route::put('_blog/{blog}', [AdminBlogController::class, 'update'])->name('admin_
 
 // ブログの削除機能
 Route::delete('/blog/{blog}', [AdminBlogController::class, 'destroy'])->name('admin_blog.destroy');
+
+
+// お問い合わせメール管理
+Route::get('/admin/contact_requests', [ContactController::class, 'index'])->name('admin.contactRequests.index');
+
+// お問い合わせのステータス管理
+Route::post('/admin/contact_requests/{id}/status', [ContactController::class, 'updateStatus'])->name('admin.contactRequests.updateStatus');
