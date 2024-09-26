@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IcalController;
+use App\Http\Controllers\ReservationController;
 
 // HOMEページ
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -26,7 +28,13 @@ Route::get('/blogs', [HomeController::class, 'blog_lists'])->name('public_blog_l
 Route::get('/blogs/{id}', [HomeController::class, 'blog_detail'])->name('public_blog_detail');
 
 // 予約ページ
-Route::get('/reservation', function() {return view('reservation');})->name('reservation');
+Route::get('/reservation', [ReservationController::class, 'showReservationForm'])->name('reservation');
+
+// iCalデータをもとに予約を更新
+Route::get('/update-reservations', [IcalController::class, 'updateReservations']);
+
+// カレンダーのデータを取得
+Route::get('/get-calendar-date', [IcalController::class, 'getCalendarData']);
 
 
 // 管理者用のRoute
